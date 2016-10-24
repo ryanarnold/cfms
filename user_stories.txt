@@ -1,5 +1,7 @@
 CFMS
 
+Normal login functionality.
+
 Action Officer can encode a complaint.
 
 Action Officer can update the contents of a complaint.
@@ -15,4 +17,3 @@ Admin can create new users.
 Admin can CRUD new platforms.
 
 Admin can CRUD new categories.
-
