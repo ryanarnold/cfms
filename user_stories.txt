@@ -1,0 +1,18 @@
+CFMS
+
+Action Officer can encode a complaint.
+
+Action Officer can update the contents of a complaint.
+
+Action Officer can flag a complaint as "resolved".
+
+Action Officer can search for a complaint using a variety of filters.
+
+Action Officer can generate detailed or summarized monthly, quarterly, semestral, and annual reports.
+
+Admin can create new users.
+
+Admin can CRUD new platforms.
+
+Admin can CRUD new categories.
+
