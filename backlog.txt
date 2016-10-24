@@ -1,0 +1,15 @@
+
+ITERATION # 1
+=============
+
+User can login using username and password.
+
+	- create models for user profile
+	- create temporary home page (for registered users)
+	- create login page
+
+Action Officer can encode a complaint.
+
+	- create models for complaints and others
+	- create New Complaint Page
+	- create views for adding a complaint
