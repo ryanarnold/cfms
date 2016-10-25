@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
+from complaints.forms import ComplaintForm
 
 @login_required
 def index(request):
@@ -25,3 +26,8 @@ def user_login(request):
 			context['invalid_login'] = True
 
 	return render(request, 'complaints/login.html', context)
+
+def new_complaint(request):
+	new_complaint_form = ComplaintForm()
+	context = {'form': new_complaint_form}
+	return render(request, 'complaints/new_complaint.html', context)

@@ -1,10 +1,10 @@
-from djang.db import models
+from django.db import models
 
 class Category(models.Model):
 	name = models.CharField(max_length=100)
 
 	class Meta:
-		verbose_plural_name = 'Categories'
+		verbose_name_plural = 'Categories'
 
 	def __str__(self):
 		return self.name
@@ -17,7 +17,6 @@ class Platform(models.Model):
 
 class Office(models.Model):
 	name = models.CharField(max_length=100)
-	parent = models.ForeignKey(Office, null=True)
 
 	def __str__(self):
 		return self.name
@@ -33,7 +32,7 @@ class Complaint(models.Model):
 	sender_company = models.CharField(max_length=100, null=True)
 	action_taken = models.CharField(max_length=10000, null=True)
 	date_action = models.DateTimeField(null=True)
-	remarks = models.CharField(max_length=5000)
+	remarks = models.CharField(max_length=5000, null=True)
 	category = models.ForeignKey(Category)
 	platform = models.ForeignKey(Platform)
 	done = models.BooleanField(default=False)
