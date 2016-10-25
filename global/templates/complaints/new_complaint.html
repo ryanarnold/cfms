@@ -9,12 +9,23 @@
 				{{ hidden }}
 			{% endfor %}
 			{% for field in form.visible_fields %}
-					<label>
-						{{ field.label }}
-					</label><br>
-					{{ field }}<br>
+					<div class="row">
+						<div class="col-md-2">
+							<label>{{ field.label }}</label><br>
+						</div>
+						<div class="col-md-9">
+							{{ field }}<br>
+						</div>
+					</div>
 			{% endfor %}
-			<input type="submit" name="submit" value="Save New Complaint">
+			<div class="row">
+				<div class="col-md-2">
+					<!-- NOTHING -->
+				</div>
+				<div class="col-md-9">
+					<input type="submit" name="submit" value="Save New Complaint" class="btn btn-success">
+				</div>
+			</div>
 		</form>
 	</div>
 {% endblock %}
