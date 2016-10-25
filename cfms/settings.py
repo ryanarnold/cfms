@@ -51,10 +51,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'cfms.urls'
 
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'global/templates')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +69,9 @@ TEMPLATES = [
     },
 ]
 
+STATIC_DIR = os.path.join(BASE_DIR, 'global/static')
+STATICFILES_DIRS = [STATIC_DIR,]
+
 WSGI_APPLICATION = 'cfms.wsgi.application'
 
 
@@ -76,7 +81,7 @@ WSGI_APPLICATION = 'cfms.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'cfms_db.sqlite3'),
     }
 }
 
