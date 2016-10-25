@@ -22,9 +22,9 @@ class Office(models.Model):
 		return self.name
 
 class Complaint(models.Model):
-	number = models.CharField(max_length=13)
+	number = models.IntegerField()
 	message = models.CharField(max_length=10000)
-	date_received = models.DateTimeField(auto_now=True)
+	date_received = models.DateTimeField(auto_now_add=True)
 	office_referred = models.ForeignKey(Office)
 	sender_name = models.CharField(max_length=100)
 	sender_email = models.EmailField(null=True)
