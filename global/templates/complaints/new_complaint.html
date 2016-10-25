@@ -1,0 +1,20 @@
+{% extends "complaints/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+	<div class="col-md-9">
+		<form id="new_compaint_form" method="post">
+			{% csrf_token %}
+			{% for hidden  in form.hidden_fields %}
+				{{ hidden }}
+			{% endfor %}
+			{% for field in form.visible_fields %}
+					<label>
+						{{ field.label }}
+					</label><br>
+					{{ field }}<br>
+			{% endfor %}
+			<input type="submit" name="submit" value="Save New Complaint">
+		</form>
+	</div>
+{% endblock %}
