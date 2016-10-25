@@ -20,13 +20,49 @@
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
     {% block styles %}
-      
+      	<link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">	
     {% endblock %}
 	</head>
 	<body>
+
+		{% block header %}
+			<div class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="{% url 'index' %}">Citizens' Feedback Management System</a>
+					</div>
+					<div>
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#">{{ user.first_name }}</a>
+							</li>
+							<li>
+								<a href="#">Logout</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		{% endblock %}
 		
     {% block body %}
-      
+      <div class="container-fluid">
+				<div class="row">
+					<div class="col-md-3">
+						<ul class="nav nav-pills nav-stacked">
+							<li role="presentation" class="active"><a href="{% url 'index' %}">Home</a></li>
+							<li class="presentation"><a href="{% url 'index' %}">Add New Complaint</a></li>
+							<li role="presentation"><a href="{% url 'index' %}">Search for a Complaint</a></li>
+							<li role="presentation"><a href="{% url 'index' %}">Generate Reports</a></li>
+						</ul>
+					</div>
+					
+					{% block content %}
+						
+					{% endblock %}
+					
+				</div>
+			</div>
     {% endblock %}
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

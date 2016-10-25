@@ -17,3 +17,7 @@ Admin can create new users.
 Admin can CRUD new platforms.
 
 Admin can CRUD new categories.
+
+User can view a help page.
+
+User can edit his profile.
