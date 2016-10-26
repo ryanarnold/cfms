@@ -50,10 +50,18 @@
 				<div class="row">
 					<div class="col-md-3">
 						<ul class="nav nav-pills nav-stacked">
-							<li role="presentation" href="{% url 'index' %}"><a href="{% url 'index' %}">Home</a></li>
-							<li role="presentation" href="{% url 'new_complaint' %}"><a href="{% url 'new_complaint' %}">Add New Complaint</a></li>
-							<li role="presentation" href="{% url 'index' %}"><a href="{% url 'index' %}">Search for a Complaint</a></li>
-							<li role="presentation" href="{% url 'index' %}"><a href="{% url 'index' %}">Generate Reports</a></li>
+							<li role="presentation" href="{% url 'index' %}">
+								<a href="{% url 'index' %}">Home</a>
+							</li>
+							<li role="presentation" href="{% url 'new_complaint' %}">
+								<a href="{% url 'new_complaint' %}">Add New Complaint</a>
+							</li>
+							<li role="presentation" href="{% url 'search_complaint' %}">
+								<a href="{% url 'search_complaint' %}">Search for a Complaint</a>
+							</li>
+							<li role="presentation" href="{% url 'index' %}">
+								<a href="{% url 'index' %}">Generate Reports</a>
+							</li>
 						</ul>
 					</div>
 					

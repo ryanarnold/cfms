@@ -38,7 +38,6 @@ def user_logout(request):
 	return HttpResponseRedirect(reverse('index'))
 
 def new_complaint(request):
-
 	if request.method == 'POST':
 		form = ComplaintForm(request.POST)
 
@@ -54,3 +53,7 @@ def new_complaint(request):
 
 	context = {'form': form}
 	return render(request, 'complaints/new_complaint.html', context)
+
+def search_complaint(request):
+	context = {}
+	return render(request, 'complaints/search_complaint.html', context)
