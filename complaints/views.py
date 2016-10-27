@@ -56,4 +56,12 @@ def new_complaint(request):
 
 def search_complaint(request):
 	context = {}
+
+	if request.method == 'GET':
+		number = request.GET.get('number')
+
+		results = Complaint.objects.filter(number__contains=number)
+
+		context['results'] = results
+
 	return render(request, 'complaints/search_complaint.html', context)

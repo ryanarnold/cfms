@@ -1,8 +1,44 @@
 {% extends "complaints/base.html" %}
 {% load staticfiles %}
 
+{% block styles %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/search.css" %}">	
+{% endblock %}
+
 {% block content %}
 	<div class="col-md-9">
-		<h1>Search for a complaint</h1>
+		<div class="panel panel-default">
+			<div class="panel-heading">Search filters</div>
+			<div class="panel-body">
+				<form id="search_complaint_form" method="get" >
+					{% csrf_token %}
+					<div class="row">
+						<div class="col-md-2">
+							<label>Complaint ID:</label>
+						</div>
+						<div class="col-md-4">
+							<input type="text" name="number" class="form-control">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2"><!-- Blank --></div>
+						<div class="col-md-4">
+							<br><button type="submit" class="btn btn-success">Search</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">Search results</div>
+			<div class="panel-body">
+				{% for result  in results %}
+					<a href="#">{{ result.number }}</a>
+					<span class="date"> | {{ result.date_received }}</span>
+					<br>
+				{% endfor %}
+			</div> 
+		</div>
 	</div>
 {% endblock %}
