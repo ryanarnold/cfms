@@ -23,7 +23,7 @@
 					<div class="row">
 						<div class="col-md-2"><!-- Blank --></div>
 						<div class="col-md-4">
-							<br><button type="submit" class="btn btn-success">Search</button>
+							<br><button type="submit" class="btn btn-success" name="submit" value="submit">Search</button>
 						</div>
 					</div>
 				</form>
@@ -33,11 +33,27 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">Search results</div>
 			<div class="panel-body">
-				{% for result  in results %}
-					<a href="#">{{ result.number }}</a>
-					<span class="date"> | {{ result.date_received }}</span>
-					<br>
-				{% endfor %}
+				{% if results %}
+					{% for result  in results %}
+						<strong><a href="#">{{ result.number }}</a></strong>
+						<span class="date"> | {{ result.date_received }}</span>
+						<br>
+						<em>Fr: {{ result.sender_name }}</em>
+						{% if result.action_taken %}
+							<strong class="resolved">Resolved</strong>
+						{% else %}
+							<strong class="unresolved">Unresolved</strong>
+						{% endif %}
+						<div class="complaint-message">
+							{{ result.message }}...
+						</div>
+						<small>{{ result.platform }} | {{ result.category }}</small>
+						<br>
+						<br>
+					{% endfor %}
+				{% else %}
+					No results.
+				{% endif %}
 			</div> 
 		</div>
 	</div>

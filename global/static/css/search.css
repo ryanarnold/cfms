@@ -1,3 +1,16 @@
 .date {
 	font-style: italic;
 }
+
+.complaint-message {
+	max-height: 40px;
+	overflow: hidden;
+}
+
+.resolved {
+	color: #098000;
+}
+
+.unresolved {
+	color: #B10000;
+}

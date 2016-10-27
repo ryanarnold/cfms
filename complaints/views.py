@@ -46,9 +46,12 @@ def new_complaint(request):
 		else:
 			print(form.errors)
 
-	year_re = re.compile(r'^[0-9]{4}')
-	last_number = int(re.sub(year_re, '', str(Complaint.objects.order_by('-id')[0].number)))
-	new_number = str(datetime.date(2000, 1, 1).today().year) + ('0' * (4 - len(str(last_number)))) + str(last_number + 1)
+	try:
+		year_re = re.compile(r'^[0-9]{4}')
+		last_number = int(re.sub(year_re, '', str(Complaint.objects.order_by('-id')[0].number)))
+		new_number = str(datetime.date(2000, 1, 1).today().year) + ('0' * (4 - len(str(last_number)))) + str(last_number + 1)
+	except IndexError:
+		new_number = str(datetime.date(2000, 1, 1).today().year) + '0001'
 	form = ComplaintForm({'number': new_number})
 
 	context = {'form': form}
@@ -57,7 +60,7 @@ def new_complaint(request):
 def search_complaint(request):
 	context = {}
 
-	if request.method == 'GET':
+	if request.method == 'GET' and request.GET.get('submit') != None:
 		number = request.GET.get('number')
 
 		results = Complaint.objects.filter(number__contains=number)

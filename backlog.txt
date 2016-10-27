@@ -17,10 +17,10 @@ Action Officer can encode a complaint.
 	*- create a redirect in login page if user is already logged in
 	*- ayusin ang style ng new complaint
 	*- ayusin ang style ng left nav bar
-	- fix autonow bug of datereceived
 
 Action Officer can search for a complaint.
 
-	- create search_complaint page
-	- create views for viewing page
-	- create view for searching
+	*- create search_complaint page
+	*- create views for viewing page
+	*- create view for searching
+	- add more search filters
