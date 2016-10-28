@@ -75,5 +75,13 @@ def search_complaint(request):
 
 def update_complaint(request, complaint_number):
 	complaint2update = Complaint.objects.get(number=complaint_number)
+
+	if request.method == 'POST':
+		form = UpdateComplaintForm(data=request.POST, instance=complaint2update)
+		complaint = form.save(commit=True)
+		return HttpResponseRedirect(reverse('search_complaint'))
+
+	
 	form = UpdateComplaintForm(instance=complaint2update)
+
 	return render(request, 'complaints/update_complaint.html', {'form': form})

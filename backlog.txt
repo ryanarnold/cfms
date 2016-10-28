@@ -26,3 +26,8 @@ Action Officer can search for a complaint.
 	- add more search filters
 	*- make search inputs be retained
 
+Action Officer can update a complaint.
+
+	*- create template for update
+	*- create views for displaying template
+	- create views for update query 
