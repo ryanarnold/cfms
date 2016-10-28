@@ -1,6 +1,11 @@
 {% extends "complaints/base.html" %}
 {% load staticfiles %}
 
+{% block styles %}
+  <link rel="stylesheet" href="{% static "css/jquery-ui.css" %}"/>
+  <link rel="stylesheet" href="{% static "css/jquery-ui-timepicker-addon.css" %}"/>
+{% endblock %}
+
 {% block content %}
 	<div class="col-md-9">
 		<form method="post">
@@ -29,4 +34,6 @@
 
 {% block scripts %}
 	<script src="{% static "js/jquery-ui.js" %}"></script>
+	<script src="{% static "js/jquery-ui-timepicker-addon.js" %}"></script>
+	<script src="{% static "js/update.js" %}"></script>
 {% endblock %}
