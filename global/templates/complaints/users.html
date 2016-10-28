@@ -6,7 +6,24 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">Add a user</div>
 			<div class="panel-body">
-				
+				{% for field in form.visible_fields %}
+					<div class="row">
+						<div class="col-md-2">
+							<label>{{ field.label }}</label>
+						</div>
+						<div class="col-md-4">
+							{{ field }}
+						</div>
+					</div><br>
+				{% endfor %}
+				<div class="row">
+					<div class="col-md-2">
+						<!-- NOTHING -->
+					</div>
+					<div class="col-md-9">
+						<input type="submit" name="submit" value="Save new user" class="btn btn-success">
+					</div>
+				</div>
 			</div>
 		</div>
 

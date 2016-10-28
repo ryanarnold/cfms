@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
-from complaints.forms import ComplaintForm, UpdateComplaintForm
+from complaints.forms import ComplaintForm, UpdateComplaintForm, UserForm
 from complaints.models import Complaint
 from django import forms
 import re, datetime
@@ -94,4 +94,6 @@ def update_complaint(request, complaint_number):
 	return render(request, 'complaints/update_complaint.html', {'form': form})
 
 def users(request):
-	return render(request, 'complaints/users.html', {})
+	user_form = UserForm()
+
+	return render(request, 'complaints/users.html', {'form': user_form})
