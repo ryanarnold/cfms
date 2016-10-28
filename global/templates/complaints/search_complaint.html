@@ -34,7 +34,7 @@
 			<div class="panel-body">
 				{% if results %}
 					{% for result  in results %}
-						<strong><a href="{% url 'update' result.number %}">{{ result.number }}</a></strong>
+						<strong><a href="{% url 'update_complaint' result.number %}">{{ result.number }}</a></strong>
 						<span class="date"> | {{ result.date_received }}</span>
 						<br>
 						<em>Fr: {{ result.sender_name }}</em>

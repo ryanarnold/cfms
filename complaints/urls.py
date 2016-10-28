@@ -8,4 +8,5 @@ urlpatterns = [
 	url(r'^logout/$', views.user_logout, name='logout'),
 	url(r'^new_complaint$', views.new_complaint, name='new_complaint'),
 	url(r'^search_complaint$', views.search_complaint, name='search_complaint'),
+	url(r'^update_complaint$', views.update_complaint, name='update_complaint'),
 ]
