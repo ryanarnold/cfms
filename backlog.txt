@@ -24,5 +24,5 @@ Action Officer can search for a complaint.
 	*- create views for viewing page
 	*- create view for searching
 	- add more search filters
-	- make search inputs be retained
+	*- make search inputs be retained
 
