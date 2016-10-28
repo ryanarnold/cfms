@@ -73,5 +73,5 @@ def search_complaint(request):
 
 	return render(request, 'complaints/search_complaint.html', context)
 
-def update_complaint(request, complaint_id_slug):
-	return render(request, 'complaints/index.html', context)
+def update_complaint(request, complaint_number):
+	return render(request, 'complaints/index.html', {})
