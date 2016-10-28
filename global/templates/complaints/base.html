@@ -65,8 +65,8 @@
 								<a href="{% url 'index' %}">Generate Reports</a>
 							</li>
 							{% if user.is_staff %}
-								<li role="presentation" href="{% url 'index' %}">
-									<a href="{% url 'index' %}">Create a User</a>
+								<li role="presentation" href="{% url 'users' %}">
+									<a href="{% url 'users' %}">Users</a>
 								</li>
 							{% endif %}
 						</ul>

@@ -9,4 +9,5 @@ urlpatterns = [
 	url(r'^new-complaint$', views.new_complaint, name='new_complaint'),
 	url(r'^search-complaint$', views.search_complaint, name='search_complaint'),
 	url(r'^update-complaint/(?P<complaint_number>[\w\-0-9]+)/$', views.update_complaint, name='update_complaint'),
+	url(r'^users/$', views.users, name='users'),
 ]

@@ -92,3 +92,6 @@ def update_complaint(request, complaint_number):
 	form = UpdateComplaintForm(instance=complaint2update)
 
 	return render(request, 'complaints/update_complaint.html', {'form': form})
+
+def users(request):
+	return render(request, 'complaints/users.html', {})
