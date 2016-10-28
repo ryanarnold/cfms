@@ -7,7 +7,8 @@ User can login using username and password.
 	*- create models for user profile
 	*- create temporary home page (for registered users)
 	*- create login page
-	- create logout function
+	*- create logout function
+	- add login required to all views
 
 Action Officer can encode a complaint.
 
@@ -30,4 +31,15 @@ Action Officer can update a complaint.
 
 	*- create template for update
 	*- create views for displaying template
-	- create views for update query 
+	*- create views for update query 
+	- change styling of done checkbox
+
+Admin can create new users.
+
+	- templates
+	- views for displaying
+	- views for create query
+
+Admin can CRUD new platforms.
+
+Admin can CRUD new categories.
