@@ -94,6 +94,23 @@ def update_complaint(request, complaint_number):
 	return render(request, 'complaints/update_complaint.html', {'form': form})
 
 def users(request):
+	return render(request, 'complaints/users.html', {})
+
+def add_user(request):
 	user_form = UserForm()
 
-	return render(request, 'complaints/users.html', {'form': user_form})
+	if request.method == 'POST':
+		submit_type = request.POST.get('submit')
+		
+		if submit_type == 'discard':
+			return HttpResponseRedirect(reverse('users'))
+		else:
+			user_form = UserForm(data=request.POST)
+			user_form.save(commit=True)
+
+			if submit_type == 'another':
+				return HttpResponseRedirect(reverse('add_user'))
+			else:
+				return HttpResponseRedirect(reverse('users'))
+
+	return render(request, 'complaints/add_user.html', {'form': user_form})
