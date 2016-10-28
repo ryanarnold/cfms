@@ -10,7 +10,7 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">Search filters</div>
 			<div class="panel-body">
-				<form id="search_complaint_form" method="get" >
+				<form id="search_complaint_form" method="get">
 					<div class="row">
 						<div class="col-md-2">
 							<label>Complaint ID:</label>
@@ -34,7 +34,7 @@
 			<div class="panel-body">
 				{% if results %}
 					{% for result  in results %}
-						<strong><a href="#">{{ result.number }}</a></strong>
+						<strong><a href="{% url 'update' result.number %}">{{ result.number }}</a></strong>
 						<span class="date"> | {{ result.date_received }}</span>
 						<br>
 						<em>Fr: {{ result.sender_name }}</em>
