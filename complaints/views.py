@@ -77,9 +77,16 @@ def update_complaint(request, complaint_number):
 	complaint2update = Complaint.objects.get(number=complaint_number)
 
 	if request.method == 'POST':
-		form = UpdateComplaintForm(data=request.POST, instance=complaint2update)
-		complaint = form.save(commit=True)
-		return HttpResponseRedirect(reverse('search_complaint'))
+		submit_type = request.POST.get('submit')
+
+		if submit_type != 'discard':
+			form = UpdateComplaintForm(data=request.POST, instance=complaint2update)
+			complaint = form.save(commit=True)
+
+			if submit_type == 'continue':
+				return render(request, 'complaints/update_complaint.html', {'form': form})
+			elif submit_type == 'search':
+				return HttpResponseRedirect(reverse('search_complaint'))
 
 	
 	form = UpdateComplaintForm(instance=complaint2update)
