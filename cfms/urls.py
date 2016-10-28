@@ -18,7 +18,7 @@ from django.contrib import admin
 from complaints import views
 
 urlpatterns = [
-	url(r'^$', views.index, name='index'),
+	url(r'^$', views.redirect_to_index, name='redirect_to_indexindex'),
 	url(r'^cfms/', include('complaints.urls')),
     url(r'^admin/', admin.site.urls),
 ]
