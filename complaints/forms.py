@@ -52,3 +52,10 @@ class UpdateComplaintForm(ComplaintForm):
 			'done',
 			'date_action', 
 			'remarks')
+
+class UserForm(forms.ModelForm):
+	password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
+
+	class Meta:
+		model = User
+		fields = ('username', 'password', 'first_name', 'last_name')
