@@ -49,6 +49,6 @@ class UpdateComplaintForm(ComplaintForm):
 			'sender_contact', 
 			'sender_company',
 			'action_taken', 
+			'done',
 			'date_action', 
-			'remarks', 
-			'done')
+			'remarks')
