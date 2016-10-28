@@ -2,11 +2,31 @@
 {% load staticfiles %}
 
 {% block content %}
-	<div class="col-md-9">
+	<div class="col-md-7">
 			<h3>
 				Select a user to change 
 				<a href="{% url 'add_user' %}"><button class='btn btn-info'>Add user</button></a>
 			</h3>
+			<br>
+
+			<table class="table">
+				<tbody>
+					<tr>
+						<th>Username</th>
+						<th>Password</th>
+						<th>First name</th>
+						<th>Last name</th>
+					</tr>
+					{% for user in results %}
+						<tr>
+							<td><a href="#">{{ user.username }}</a></td>
+							<td>**********</td>
+							<td>{{ user.first_name }}</td>
+							<td>{{ user.last_name }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
 
 	</div>
 {% endblock %}
