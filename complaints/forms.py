@@ -33,7 +33,7 @@ class ComplaintForm(forms.ModelForm):
 
 class UpdateComplaintForm(ComplaintForm):
 	action_taken = forms.CharField(label='Action Taken', widget=forms.Textarea(attrs={'class':'form-control'}), required=False)
-	date_action = forms.DateTimeField(label='Date of Action', widget=forms.DateTimeInput(attrs={'class':'form-control'}), required=False)
+	date_action = forms.DateTimeField(label='Date of Action', widget=forms.DateTimeInput(attrs={'class':'form-control datetime-picker'}), required=False)
 	remarks = forms.CharField(label='Remarks', widget=forms.TextInput(attrs={'class':'form-control'}), required=False)
 	done = forms.BooleanField(label='Done', widget=forms.CheckboxInput(attrs={'class':'form-control'}), required=False)
 
