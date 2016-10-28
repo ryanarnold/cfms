@@ -13,6 +13,10 @@ def index(request):
 	context = {}
 	return render(request, 'complaints/index.html', context)
 
+@login_required
+def redirect_to_index(request):
+	return HttpResponseRedirect(reverse('index'))
+
 def user_login(request):
 	if request.user.is_authenticated():
 		return HttpResponseRedirect(reverse('index'))
