@@ -51,5 +51,4 @@ class UpdateComplaintForm(ComplaintForm):
 			'action_taken', 
 			'date_action', 
 			'remarks', 
-			'done', 
-			'date_received')
+			'done')

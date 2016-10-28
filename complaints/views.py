@@ -74,4 +74,6 @@ def search_complaint(request):
 	return render(request, 'complaints/search_complaint.html', context)
 
 def update_complaint(request, complaint_number):
-	return render(request, 'complaints/index.html', {})
+	complaint2update = Complaint.objects.get(number=complaint_number)
+	form = UpdateComplaintForm(instance=complaint2update)
+	return render(request, 'complaints/update_complaint.html', {'form': form})
