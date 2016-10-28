@@ -66,9 +66,9 @@ def search_complaint(request):
 
 	if request.method == 'GET' and request.GET.get('submit') != None:
 		number = request.GET.get('number')
-
 		results = Complaint.objects.filter(number__contains=number)
-
 		context['results'] = results
+
+		context['number_retained'] = number
 
 	return render(request, 'complaints/search_complaint.html', context)
