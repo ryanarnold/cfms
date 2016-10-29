@@ -172,3 +172,15 @@ def delete_platform(request, platform_id):
 		return HttpResponseRedirect(reverse('platforms'))
 
 	return render(request, 'complaints/delete_platform.html', {'platform': platform})
+
+def categories(request):
+	return render(request, 'complaints/platforms.html', {})
+
+def add_category(request):
+	return render(request, 'complaints/platforms.html', {})	
+
+def update_category(request, category_id):
+	return render(request, 'complaints/platforms.html', {})	
+
+def delete_category(request, category_id):
+	return render(request, 'complaints/platforms.html', {})	
