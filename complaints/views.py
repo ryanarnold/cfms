@@ -107,8 +107,16 @@ def add_user(request):
 		if submit_type == 'discard':
 			return HttpResponseRedirect(reverse('users'))
 		else:
-			user_form = UserForm(data=request.POST)
-			user_form.save(commit=True)
+			# user_form = UserForm(data=request.POST)
+			# user_form.save(commit=True)
+			username = request.POST.get('username')
+			password = request.POST.get('password')
+			first_name = request.POST.get('first_name')
+			last_name = request.POST.get('last_name')
+			user = User.objects.create_user(username=username, 
+				password=password, 
+				first_name=first_name, 
+				last_name=last_name)
 
 			if submit_type == 'another':
 				return HttpResponseRedirect(reverse('add_user'))
