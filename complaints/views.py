@@ -166,8 +166,9 @@ def delete_platform(request, platform_id):
 	if request.method == 'POST':
 		submit_type = request.POST.get('submit')
 		if submit_type == 'yes':
-			pass
-		else:
-			return HttpResponseRedirect(reverse('platforms'))
+			platform.archived = True
+			platform.save()
+		
+		return HttpResponseRedirect(reverse('platforms'))
 
 	return render(request, 'complaints/delete_platform.html', {'platform': platform})
