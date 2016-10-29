@@ -148,3 +148,14 @@ def add_platform(request):
 	platform = PlatformForm(data=request.POST)
 	platform.save(commit=True)
 	return HttpResponseRedirect(reverse('platforms'))
+
+def update_platform(request, platform_id):
+	platform = Platform.objects.get(id=platform_id)
+
+	if request.method == 'POST':
+		form = PlatformForm(data=request.POST, instance=platform)
+		form.save(commit=True)
+		return HttpResponseRedirect(reverse('platforms'))
+
+	form = PlatformForm(instance=platform)
+	return render(request, 'complaints/update_platform.html', {'form': form})

@@ -13,5 +13,6 @@ urlpatterns = [
 	url(r'^users/add/$', views.add_user, name='add_user'),
 	url(r'^users/update/(?P<username>[\w\-0-9]+)/$', views.update_user, name='update_user'),
 	url(r'^platforms/$', views.platforms, name='platforms'),
-	url(r'^add_platform/$', views.add_platform, name='add_platform')
+	url(r'^platforms/add/$', views.add_platform, name='add_platform'),
+	url(r'^platforms/update/(?P<platform_id>[\w\-0-9]+)/$', views.update_platform, name='update_platform'),
 ]
