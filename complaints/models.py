@@ -2,6 +2,7 @@ from django.db import models
 
 class Category(models.Model):
 	name = models.CharField(max_length=100)
+	archived = models.BooleanField(default=False)
 
 	class Meta:
 		verbose_name_plural = 'Categories'

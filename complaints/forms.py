@@ -72,3 +72,10 @@ class PlatformForm(forms.ModelForm):
 	class Meta:
 		model = Platform
 		fields = ('name',)
+
+class CategoryForm(forms.ModelForm):
+	name = forms.CharField(label='Category Name', widget=forms.TextInput(attrs={'class':'form-control'}))
+
+	class Meta:
+		model = Category
+		fields = ('name',)

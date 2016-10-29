@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
-from complaints.forms import ComplaintForm, UpdateComplaintForm, UserForm, PlatformForm
-from complaints.models import Complaint, Platform
+from complaints.forms import ComplaintForm, UpdateComplaintForm, UserForm, PlatformForm, CategoryForm
+from complaints.models import Complaint, Platform, Category
 from django import forms
 import re, datetime
 
@@ -139,9 +139,7 @@ def update_user(request, username):
 
 def platforms(request):
 	platforms = Platform.objects.filter(archived=False).order_by('name')
-
 	platform_form = PlatformForm()
-
 	return render(request, 'complaints/platforms.html', {'platforms': platforms, 'create_form': platform_form})
 
 def add_platform(request):
@@ -174,13 +172,18 @@ def delete_platform(request, platform_id):
 	return render(request, 'complaints/delete_platform.html', {'platform': platform})
 
 def categories(request):
-	return render(request, 'complaints/platforms.html', {})
+	categories = Category.objects.order_by('name')
+	form = CategoryForm()
+	return render(request, 'complaints/categories.html', {'categories': categories, 'form': form})
 
 def add_category(request):
-	return render(request, 'complaints/platforms.html', {})	
+	if request.method == 'POST':
+		category = CategoryForm(data=request.POST)
+		category.save(commit=True)
+	return HttpResponseRedirect(reverse('categories'))
 
 def update_category(request, category_id):
-	return render(request, 'complaints/platforms.html', {})	
+	return render(request, 'complaints/categories.html', {})	
 
 def delete_category(request, category_id):
-	return render(request, 'complaints/platforms.html', {})	
+	return render(request, 'complaints/categories.html', {})	

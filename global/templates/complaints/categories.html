@@ -22,7 +22,7 @@
             <div class="modal-body">
               <form method="post" action="{% url 'add_category' %}">
 								{% csrf_token %}
-								{% for field in create_form.visible_fields %}
+								{% for field in form.visible_fields %}
 									<div class="row">
 										<div class="col-md-3">
 											<label>{{ field.label }}</label>
