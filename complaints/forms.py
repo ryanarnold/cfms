@@ -65,3 +65,10 @@ class UserForm(forms.ModelForm):
 			'last_name',
 			'username', 
 			'password')
+
+class PlatformForm(forms.ModelForm):
+	name = forms.CharField(label='Platform Name', widget=forms.TextInput(attrs={'class':'form-control'}))
+
+	class Meta:
+		model = Platform
+		fields = ('name',)

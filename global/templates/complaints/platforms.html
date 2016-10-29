@@ -3,14 +3,54 @@
 
 {% block content %}
 	<div class="col-md-7">
-			<h3>
-				Select a platform to change 
-				<a href="{% url 'platforms' %}"><button class='btn btn-info'>Add platform</button></a>
-			</h3>
-			<br>
-			
-			<div class="row">
-				<div class="col-md-6">
+		<h3>
+			Select a platform to change 
+			<button type="button" class="btn btn-info" data-toggle="modal" data-target="#add-platform-modal" id="modalActionButton">Add Platform<i class="fa fa- fa-book"></i></button>
+		</h3>
+		<br>
+
+		<!-- Modal -->
+    <div class="modal fade" tabindex="-1"  id="add-platform-modal" role="dialog">
+      <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content"  style="width:100%">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Add Platform</h4>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="{% url 'add_platform' %}">
+								{% csrf_token %}
+								{% for field in create_form.visible_fields %}
+									<div class="row">
+										<div class="col-md-3">
+											<label>{{ field.label }}</label>
+										</div>
+										<div class="col-md-5">
+											{{ field }}
+										</div>
+									</div><br>
+								{% endfor %}
+								
+								<div class="row">
+									<div class="col-md-3">
+										<!-- NOTHING -->
+									</div>
+									<div class="col-md-5">
+										<button type="submit" name="submit" class="btn btn-success">Save</button>
+									</div>
+								</div>
+							</form>
+            </div>
+          </div>
+
+      </div>
+    </div>
+		
+		<!-- Platforms Table -->
+		<div class="row">
+			<div class="col-md-6">
 				<table class="table">
 					<tbody>
 						<tr>
