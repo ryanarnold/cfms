@@ -172,7 +172,7 @@ def delete_platform(request, platform_id):
 	return render(request, 'complaints/delete_platform.html', {'platform': platform})
 
 def categories(request):
-	categories = Category.objects.order_by('name')
+	categories = Category.objects.filter(archived=False).order_by('name')
 	form = CategoryForm()
 	return render(request, 'complaints/categories.html', {'categories': categories, 'form': form})
 
@@ -192,4 +192,11 @@ def update_category(request, category_id):
 	return render(request, 'complaints/update_category.html', {'form': form})	
 
 def delete_category(request, category_id):
-	return render(request, 'complaints/categories.html', {})	
+	category2delete = Category.objects.get(id=category_id)
+	if request.method == 'POST':
+		submit_type = request.POST.get('submit')
+		if submit_type == 'yes':
+			category2delete.archived = True
+			category2delete.save()
+		return HttpResponseRedirect(reverse('categories'))
+	return render(request, 'complaints/delete_category.html', {'category': category2delete})	
