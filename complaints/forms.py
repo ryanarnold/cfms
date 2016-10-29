@@ -79,3 +79,10 @@ class CategoryForm(forms.ModelForm):
 	class Meta:
 		model = Category
 		fields = ('name',)
+
+class OfficeForm(forms.ModelForm):
+	name = forms.CharField(label='Office Name', widget=forms.TextInput(attrs={'class':'form-control'}))
+
+	class Meta:
+		model = Office
+		fields = ('name',)
