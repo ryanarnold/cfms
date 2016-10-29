@@ -1,0 +1,32 @@
+{% extends "complaints/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+	<div class="col-md-7">
+		<h3>Edit office</h3>
+
+		<form method="post">
+			{% csrf_token %}
+			{% for field in form.visible_fields %}
+				<div class="row">
+					<div class="col-md-3">
+						<label>{{ field.label }}</label>
+					</div>
+					<div class="col-md-5">
+						{{ field }}
+					</div>
+				</div><br>
+			{% endfor %}
+			
+			<div class="row">
+				<div class="col-md-3">
+					<!-- NOTHING -->
+				</div>
+				<div class="col-md-5">
+					<button type="submit" name="submit" class="btn btn-success">Save</button>
+					<a href="{% url 'categories' %}" class="btn btn-info" role="button">Cancel</a>
+				</div>
+			</div>
+		</form>
+	</div>
+{% endblock %}

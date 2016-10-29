@@ -193,24 +193,47 @@ def update_category(request, category_id):
 
 def delete_category(request, category_id):
 	category2delete = Category.objects.get(id=category_id)
+
 	if request.method == 'POST':
 		submit_type = request.POST.get('submit')
 		if submit_type == 'yes':
 			category2delete.archived = True
 			category2delete.save()
 		return HttpResponseRedirect(reverse('categories'))
+
 	return render(request, 'complaints/delete_category.html', {'category': category2delete})
 
 def offices(request):
-	offices = Office.objects.order_by('name')
+	offices = Office.objects.filter(archived=False).order_by('name')
 	form = OfficeForm()
 	return render(request, 'complaints/offices.html', {'offices': offices, 'form': form})
 
 def add_office(request):
+	if request.method == 'POST':
+		office = OfficeForm(data=request.POST)
+		office.save(commit=True)
+
 	return HttpResponseRedirect(reverse('offices'))
 
 def update_office(request, office_id):
-	return render(request, 'complaints/offices.html', {})
+	office2update = Office.objects.get(id=office_id)
+
+	if request.method == 'POST':
+		form = OfficeForm(data=request.POST, instance=office2update)
+		form.save(commit=True)
+		return HttpResponseRedirect(reverse('offices'))
+
+	form = OfficeForm(instance=office2update)
+	return render(request, 'complaints/update_office.html', {'form': form})
 
 def delete_office(request, office_id):
-	return render(request, 'complaints/offices.html', {})
+	office2delete = Office.objects.get(id=office_id)
+
+	if request.method == 'POST':
+		submit_type = request.POST.get('submit')
+		if submit_type == 'yes':
+			office2delete.archived = True
+			office2delete.save()
+		return HttpResponseRedirect(reverse('offices'))
+
+	return render(request, 'complaints/delete_office.html', {'office':office2delete})
