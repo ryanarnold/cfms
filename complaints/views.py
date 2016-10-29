@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from complaints.forms import ComplaintForm, UpdateComplaintForm, UserForm, PlatformForm, CategoryForm
-from complaints.models import Complaint, Platform, Category
+from complaints.models import Complaint, Platform, Category, Office
 from django import forms
 import re, datetime
 
@@ -199,4 +199,17 @@ def delete_category(request, category_id):
 			category2delete.archived = True
 			category2delete.save()
 		return HttpResponseRedirect(reverse('categories'))
-	return render(request, 'complaints/delete_category.html', {'category': category2delete})	
+	return render(request, 'complaints/delete_category.html', {'category': category2delete})
+
+def offices(request):
+	offices = Office.objects.order_by('name')
+	return render(request, 'complaints/offices.html', {'offices': offices})
+
+def add_office(request):
+	return HttpResponseRedirect(reverse('offices'))
+
+def update_office(request, office_id):
+	return render(request, 'complaints/offices.html', {})
+
+def delete_office(request, office_id):
+	return render(request, 'complaints/offices.html', {})

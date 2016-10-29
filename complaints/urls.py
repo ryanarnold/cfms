@@ -20,4 +20,8 @@ urlpatterns = [
 	url(r'^categories/add/$', views.add_category, name='add_category'),
 	url(r'^categories/update/(?P<category_id>[\w\-0-9]+)/$', views.update_category, name='update_category'),
 	url(r'^categories/delete/(?P<category_id>[\w\-0-9]+)/$', views.delete_category, name='delete_category'),
+	url(r'^offices/$', views.offices, name='offices'),
+	url(r'^offices/add/$', views.add_office, name='add_office'),
+	url(r'^offices/update/(?P<office_id>[\w\-0-9]+)/$', views.update_office, name='update_office'),
+	url(r'^offices/delete/(?P<office_id>[\w\-0-9]+)/$', views.delete_office, name='delete_office'),
 ]
