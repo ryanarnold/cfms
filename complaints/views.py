@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from complaints.forms import ComplaintForm, UpdateComplaintForm, UserForm
-from complaints.models import Complaint
+from complaints.models import Complaint, Platform
 from django import forms
 import re, datetime
 
@@ -126,6 +126,17 @@ def add_user(request):
 	return render(request, 'complaints/add_user.html', {'form': user_form})
 
 def update_user(request, username):
+	''' NOT USED '''
 	user2update = User.objects.get(username=username)
+
+	if request.method == 'POST':
+		user_form = UserForm(data=request.POST, instance=user2update)
+		user_form.save(commit=True)
+		return HttpResponseRedirect(reverse('users'))
+
 	user_form = UserForm(instance=user2update)
 	return render(request, 'complaints/update_user.html', {'form': user_form})
+
+def platforms(request):
+	platforms = Platform.objects.order_by('name')
+	return render(request, 'complaints/platforms.html', {'platforms': platforms})
