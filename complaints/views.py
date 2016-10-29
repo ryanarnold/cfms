@@ -124,3 +124,8 @@ def add_user(request):
 				return HttpResponseRedirect(reverse('users'))
 
 	return render(request, 'complaints/add_user.html', {'form': user_form})
+
+def update_user(request, username):
+	user2update = User.objects.get(username=username)
+	user_form = UserForm(instance=user2update)
+	return render(request, 'complaints/update_user.html', {'form': user_form})

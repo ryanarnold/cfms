@@ -11,4 +11,5 @@ urlpatterns = [
 	url(r'^update-complaint/(?P<complaint_number>[\w\-0-9]+)/$', views.update_complaint, name='update_complaint'),
 	url(r'^users/$', views.users, name='users'),
 	url(r'^users/add/$', views.add_user, name='add_user'),
+	url(r'^users/update/(?P<username>[\w\-0-9]+)/$', views.update_user, name='update_user'),
 ]
