@@ -183,7 +183,13 @@ def add_category(request):
 	return HttpResponseRedirect(reverse('categories'))
 
 def update_category(request, category_id):
-	return render(request, 'complaints/categories.html', {})	
+	category2update = Category.objects.get(id=category_id)
+	if request.method == 'POST':
+		form = CategoryForm(data=request.POST, instance=category2update)
+		form.save(commit=True)
+		return HttpResponseRedirect(reverse('categories'))
+	form = CategoryForm(instance=category2update)
+	return render(request, 'complaints/update_category.html', {'form': form})	
 
 def delete_category(request, category_id):
 	return render(request, 'complaints/categories.html', {})	
