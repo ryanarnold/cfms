@@ -61,8 +61,8 @@
 							<li role="presentation" href="{% url 'search_complaint' %}">
 								<a href="{% url 'search_complaint' %}">Search for a Complaint</a>
 							</li>
-							<li role="presentation" href="{% url 'index' %}">
-								<a href="{% url 'index' %}">Generate Reports</a>
+							<li role="presentation" href="{% url 'reports' %}">
+								<a href="{% url 'reports' %}">Reports</a>
 							</li>
 							{% if user.is_staff %}
 								<li role="presentation" href="{% url 'users' %}">

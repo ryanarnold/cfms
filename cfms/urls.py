@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from complaints import views
+from complaints import views as complaint_views
+from reports import views as reports_views
 
 urlpatterns = [
-	url(r'^$', views.redirect_to_index, name='redirect_to_indexindex'),
+	url(r'^$', complaint_views.redirect_to_index, name='redirect_to_indexindex'),
 	url(r'^cfms/', include('complaints.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^reports/$', reports_views.reports, name='reports'),
 ]
