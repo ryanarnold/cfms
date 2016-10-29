@@ -1,0 +1,15 @@
+{% extends "complaints/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+	<div class="col-md-7">
+		<h3>Delete platform</h3>
+		<p>Are you sure you want to delete the platform "{{ platform.name }}"?</p>
+
+		<form method="post">
+			{% csrf_token %}
+			<button type="submit" name="submit" value="yes" class="btn btn-danger">Yes</button>
+			<button type="submit" name="submit" value="no" class="btn btn-info">No</button>
+		</form>
+	</div>
+{% endblock %}

@@ -11,6 +11,7 @@ class Category(models.Model):
 
 class Platform(models.Model):
 	name = models.CharField(max_length=100)
+	archived = models.BooleanField(default=False)
 
 	def __str__(self):
 		return self.name

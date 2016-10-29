@@ -15,4 +15,5 @@ urlpatterns = [
 	url(r'^platforms/$', views.platforms, name='platforms'),
 	url(r'^platforms/add/$', views.add_platform, name='add_platform'),
 	url(r'^platforms/update/(?P<platform_id>[\w\-0-9]+)/$', views.update_platform, name='update_platform'),
+	url(r'^platforms/delete/(?P<platform_id>[\w\-0-9]+)/$', views.delete_platform, name='delete_platform'),
 ]

@@ -138,7 +138,7 @@ def update_user(request, username):
 	return render(request, 'complaints/update_user.html', {'form': user_form})
 
 def platforms(request):
-	platforms = Platform.objects.order_by('name')
+	platforms = Platform.objects.filter(archived=False).order_by('name')
 
 	platform_form = PlatformForm()
 
@@ -159,3 +159,15 @@ def update_platform(request, platform_id):
 
 	form = PlatformForm(instance=platform)
 	return render(request, 'complaints/update_platform.html', {'form': form})
+
+def delete_platform(request, platform_id):
+	platform = Platform.objects.get(id=platform_id)
+
+	if request.method == 'POST':
+		submit_type = request.POST.get('submit')
+		if submit_type == 'yes':
+			pass
+		else:
+			return HttpResponseRedirect(reverse('platforms'))
+
+	return render(request, 'complaints/delete_platform.html', {'platform': platform})

@@ -62,7 +62,7 @@
 							<tr>
 								<td>{{ platform.name }}</td>
 								<td><a href="{% url 'update_platform' platform.id %}">Edit</a></td>
-								<td><a href="#">Delete</a></td>
+								<td><a href="{% url 'delete_platform' platform.id %}">Delete</a></td>
 							</tr>
 						{% endfor %}
 					</tbody>
