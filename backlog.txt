@@ -36,10 +36,31 @@ Action Officer can update a complaint.
 
 Admin can create new users.
 
-	- templates
-	- views for displaying
-	- views for create query
+	*- templates
+	*- views for displaying
+	*- views for create query
 
 Admin can CRUD new platforms.
+	
+	*- display existing platforms
+	*- create platform
+	*- update platform
+	*- delete platform
 
 Admin can CRUD new categories.
+
+	*- display existing categories
+	*- create categories
+	*- update categories
+	*- delete categories
+
+Admin can CRUD new offices
+
+	*- display existing offices
+	*- create offices
+	*- update offices
+	*- delete offices
+
+Action Officer can generate detailed or summarized monthly, quarterly, semestral, and annual reports.
+
+	- template for report page

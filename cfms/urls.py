@@ -22,5 +22,5 @@ urlpatterns = [
 	url(r'^$', complaint_views.redirect_to_index, name='redirect_to_indexindex'),
 	url(r'^cfms/', include('complaints.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^reports/$', reports_views.reports, name='reports'),
+    url(r'^reports/', include('reports.urls')),
 ]
