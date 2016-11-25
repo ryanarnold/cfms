@@ -7,7 +7,7 @@ CFMS is an information system for managing the complaints and feedback received 
 
 To install, simply clone the repo on your machine
 
-`git clone`
+`git clone https://github.com/ryanarnold/cfms.git`
 
 Make sure that your python environment has all the packages listed in `requirements.txt`.
 
